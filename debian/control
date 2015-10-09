@@ -1,0 +1,46 @@
+Source: libclass-load-perl
+Maintainer: Debian Perl Group <pkg-perl-maintainers@lists.alioth.debian.org>
+Uploaders: gregor herrmann <gregoa@debian.org>,
+           Angel Abad <angel@debian.org>,
+           Alessandro Ghedini <ghedo@debian.org>
+Section: perl
+Priority: optional
+Build-Depends: debhelper (>= 9.20140227~),
+               libmodule-build-tiny-perl (>= 0.034)
+Build-Depends-Indep: libdata-optlist-perl,
+                     libmodule-implementation-perl,
+                     libmodule-runtime-perl (>= 0.012),
+                     libnamespace-clean-perl,
+                     libpackage-stash-perl (>= 0.14),
+                     libtest-fatal-perl,
+                     libtest-requires-perl,
+                     libtest-without-module-perl,
+                     libtry-tiny-perl,
+                     perl
+Standards-Version: 3.9.5
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-perl/packages/libclass-load-perl.git
+Vcs-Git: git://anonscm.debian.org/pkg-perl/packages/libclass-load-perl.git
+Homepage: https://metacpan.org/release/Class-Load
+
+Package: libclass-load-perl
+Architecture: all
+Depends: ${misc:Depends},
+         ${perl:Depends},
+         libdata-optlist-perl,
+         libmodule-implementation-perl,
+         libmodule-runtime-perl (>= 0.012),
+         libnamespace-clean-perl,
+         libpackage-stash-perl (>= 0.14),
+         libtry-tiny-perl
+Description: module for loading modules by name
+ "require EXPR" only accepts Class/Name.pm style module names, not
+ Class::Name. For that, Class::Load provides "load_class 'Class::Name'".
+ .
+ It's often useful to test whether a module can be loaded, instead of throwing
+ an error when it's not available. For that, Class::Load provides
+ "try_load_class 'Class::Name'".
+ .
+ Finally, sometimes it is important to know whether a particular class has
+ been loaded. Asking %INC is an option, but that will miss inner packages and
+ any class for which the filename does not correspond to the package name. For
+ that, this module provides "is_class_loaded 'Class::Name'".
